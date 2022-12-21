@@ -15,12 +15,22 @@ export class RegisterPageComponent implements OnInit {
   passwordControl = new FormControl('', [Validators.minLength(6), Validators.required ] );
   repetPasswordControl = new FormControl('', [Validators.minLength(6),Validators.required, matchValidator('password', true)]);
 
+  streetNameControl =new FormControl('');
+  numberStreetControl = new FormControl('');
+  countryControl = new FormControl('');
+
   registerForm =new FormGroup({
     firtName: this.firstNameControl,
     lastName: this.lastNameControl,
     email: this.emailControl,                      
     password: this.passwordControl,
-    repetPassword: this.repetPasswordControl
+    repetPassword: this.repetPasswordControl,
+
+    location: new FormGroup({
+      streetName: this.streetNameControl,
+      numberStreet: this.numberStreetControl,
+      country: this.countryControl
+    })
   }
 
   );
